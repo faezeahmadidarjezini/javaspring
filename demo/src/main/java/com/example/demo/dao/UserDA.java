@@ -1,33 +1,17 @@
-package com.example.demo.dao;
-
-
-
-
-import com.example.demo.model.User;
+package com.example.demo.dao;import com.example.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-
-import javax.persistence.EntityManager;
+import org.springframework.stereotype.Repository;import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
-
-@Repository
+import java.util.List;@Repository
 public class UserDA implements IUserDA {
     @PersistenceContext
-    EntityManager entityManager;
-
-    @Autowired
-    DataSource dataSource;
-
-
-
-
-    public void insert(User user) throws Exception {
+    EntityManager entityManager;@Autowired
+    DataSource dataSource;public void insert(User user) throws Exception {
         try (Connection connection = dataSource.getConnection()) {
             PreparedStatement preparedStatement;
             preparedStatement = connection.prepareStatement("insert into person  values (?,?,?,?,?)");
@@ -37,11 +21,7 @@ public class UserDA implements IUserDA {
             preparedStatement.setString(4, user.getLastname());
             preparedStatement.setInt(5,user.getId());
             preparedStatement.executeUpdate();
-        }
-
-    }
-
-    public List<User> select() throws Exception {
+        }}public List<User> select() throws Exception {
         PreparedStatement preparedStatement;
         preparedStatement = dataSource.getConnection().prepareStatement("select * from person");
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -57,9 +37,7 @@ public class UserDA implements IUserDA {
             userList.add(user);
         }
         return userList;
-    }
-
-    public void update(User user) throws Exception {
+    }public void update(User user) throws Exception {
         PreparedStatement preparedStatement;
         preparedStatement = dataSource.getConnection().prepareStatement("update person set password=? , firstname=? , lastname=? , username=? where id=?");
         preparedStatement.setString(1, user.getPassword());
@@ -68,9 +46,7 @@ public class UserDA implements IUserDA {
         preparedStatement.setString(4, user.getLastname());
         preparedStatement.setInt(5,user.getId());
         preparedStatement.executeUpdate();
-    }
-
-    public void delete(String username) throws Exception {
+    }public void delete(String username) throws Exception {
         PreparedStatement preparedStatement;
         preparedStatement = dataSource.getConnection().prepareStatement("delete from person where username=?");
         preparedStatement.setString(1, username);
@@ -88,8 +64,4 @@ public class UserDA implements IUserDA {
         user.setPassword(resultSet.getString("password"));
         preparedStatement.executeUpdate();
         return user;
-    }
-
-
-}
-
+    }}

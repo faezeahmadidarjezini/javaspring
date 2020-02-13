@@ -25,7 +25,6 @@ public class UserController {
             user.setUsername(username);
             user.setPassword(password);
             User check = userService.check(user);
-
             if (check != null) {
                 HttpSession session = req.getSession();
                 session.setAttribute("currentUser", check);
@@ -45,23 +44,22 @@ public class UserController {
     }
 
     @GetMapping(value = "/Select")
-    public List<User> select() throws Exception{
+    public List<User> select() throws Exception {
         return userService.get();
     }
 
     @GetMapping(value = "/load/{id}")
-    public User select(@PathParam("id") long id) throws Exception{
+    public User select(@PathParam("id") long id) throws Exception {
         return null;
     }
-    @DeleteMapping(value="/delete")
-    public void delete(String username) throws Exception{
+
+    @DeleteMapping(value = "/delete")
+    public void delete(String username) throws Exception {
         userService.delete(username);
     }
-    @PostMapping(value="/update")
+
+    @PostMapping(value = "/update")
     public void update(@RequestBody User user) throws Exception {
         userService.update(user);
     }
-
-
 }
-

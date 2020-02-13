@@ -1,36 +1,16 @@
-package com.example.demo.service;
-
-import com.example.demo.dao.UserDA;
+package com.example.demo.service;import com.example.demo.dao.UserDA;
 import com.example.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-
-import java.util.List;
-
-@Service
-public class UserServiceImpl implements UserService {
-
-    @Autowired
-    UserDA userDA;
-
-    private UserServiceImpl() {
-    }
-
-    public void save(User user) throws Exception {
+import org.springframework.stereotype.Service;import java.util.List;@Service
+public class UserServiceImpl implements UserService {@Autowired
+    UserDA userDA;private UserServiceImpl() {
+    }public void save(User user) throws Exception {
         userDA.insert(user);
-    }
-
-    public void update(User user) throws Exception {
+    }public void update(User user) throws Exception {
         userDA.update(user);
-    }
-
-    public void delete(String username) throws Exception {
+    }public void delete(String username) throws Exception {
         userDA.delete(username);
-    }
-
-
-    public List<User> get() throws Exception {
+    }public List<User> get() throws Exception {
         List<User> userList = userDA.select();
         return userList;
     }
@@ -46,7 +26,5 @@ public class UserServiceImpl implements UserService {
     public String selectByUser(String username) throws Exception{
       User user = userDA.selectByUser(username);
       String s1= user.getFirstname()+ user.getLastname();
-      return s1;
-
-    }
+      return s1;}
 }

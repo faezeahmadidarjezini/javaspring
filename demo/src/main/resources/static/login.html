@@ -1,6 +1,6 @@
 
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
     <title>Pooled Admin Panel Category Flat Bootstrap Responsive Web Template | Sign In :: w3layouts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,14 +9,10 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
     <script type="application/x-javascript"> addEventListener("load", function () {
         setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
+    }, false);function hideURLbar() {
         window.scrollTo(0, 1);
     } </script>
-    <!-- Bootstrap Core CSS -->
-
-    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css'/>
+    <!-- Bootstrap Core CSS --><link href="css/bootstrap.min.css" rel='stylesheet' type='text/css'/>
     <!-- Custom CSS -->
     <link href="css/style.css" rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" href="css/morris.css" type="text/css"/>
@@ -59,19 +55,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="clearfix"></div>
             </form>
             <div class="back">
-                <a href="static\indexx.html">Back to home</a>
+                <a href="indexx.html">Back to home</a>
             </div>
             <div class="footer">
                 <p>&copy; 2016 Pooled . All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
             </div>
         </div>
     </div>
-</div>
-
-<script>
-
-
-    $(function () {
+</div><script>$(function () {
         $("#btnlogIn").click(function () {
             $.ajax({
                 url: "/security/login",
@@ -79,19 +70,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 data: "username=" + $("#username").val() + "&password=" + $("#password").val(),
                 success: function (result) {
                     console.log(result);
-                    if (result!= null) {
-                        window.location = "indexx.html";
-
-                    } else {
+                    if (result.res != null) {
+                        window.location = "static/indexx.html";} else {
                         alert("wrong user name or password");
                     }
                 },
-            });
-
-        });
-    });
-
-
-</script>
+            });});
+    });</script>
 </body>
 </html>

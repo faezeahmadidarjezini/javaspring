@@ -14,9 +14,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
     <script type="application/x-javascript"> addEventListener("load", function () {
         setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
+    }, false);function hideURLbar() {
         window.scrollTo(0, 1);
     } </script>
     <!-- Bootstrap Core CSS -->
@@ -35,153 +33,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- lined-icons -->
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css'/>
     <!-- //lined-icons -->
-    <style>
-        .btn-group button {
-            background-color: #4CAF50; /* Green background */
-            border: 1px solid green; /* Green border */
-            color: white; /* White text */
-            padding: 5px 6px; /* Some padding */
-            cursor: pointer; /* Pointer/hand icon */
-            float: left; /* Float the buttons side by side */
-        }
-
-        /* Clear floats (clearfix hack) */
-        .btn-group:after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-
-        .btn-group button:not(:last-child) {
-            border-right: none; /* Prevent double borders */
-        }
-
-        /* Add a background color on hover */
-        .btn-group button:hover {
-            background-color: #3e8e41;
-        }
-    </style>
-    <script>
-
-        $(function () {
-            $.ajax({
-                url: "/security/CurrentUser",
-                type: 'GET',
-                success: function (result) {
-                    console.log(result.lastname);
-                    $("#demo").html(result.firstname + result.lastname);
-                }
-            });
-        });
-
-    </script>
-    <a class="twitter" data-title="Goto twitter?" href="http://twitter.com/craftpip">Goto twitter</a>
-    <script>
-        var output = '';
-        $(function () {
-            $.ajax({
-                url: "/security/Select",
-                type: 'GET',
-                success: function (results) {
-                    $.each(results, function (index, user) {
-                        output += "<tr>" + "<td>" + user.firstname + "</td>" + "<td>" + user.lastname + "</td>" +
-                            "<td>" + user.username + "</td>" +
-                            "<td>" + user.password + "</td>" + "<td class='btn-group'>" + "<button onclick='cn(\"" + user.username + "\")'>"
-                            + "delete" + "</button>" +
-                            "<button onclick='loadUser(" + user.id + ")' data-toggle=\"modal\" data-target=\"#myModal\" >" + "update" + "</button>" + "</td>" + "</tr>"
-                        $("#dev").html(output);
-                    });
-
-                }
-            });
-        });
-
-        function updateUser() {
-            var user = {};
-            user.firstname = $("#firstname").val();
-            user.lastname = $("#lastname").val();
-            user.password = $("#password").val();
-            user.username = $("#username").val();
-            $.ajax({
-                url: "/security/update",
-                type: 'POST',
-                contentType: "application/json",
-                data: JSON.stringify(user)
-            })
-        }
-
-        function loadUse(id) {
-            $.ajax({
-                url: "/security/load/" + id,
-                type: 'GET',
-                success: function (user) {
-                    $("#lastname").val(user.lastname);
-                    $("#password").val(user.password);
-                    $("#username").val(user.username);
-                }
-            })
-
-        }
-
-        function cn(user) {
-            var r = confirm("are you sure?");
-            if (r == true) {
-                $.ajax({
-                    url: "/security/delete",
-                    type: 'DELETE',
-                    data: "username=" + user,
-                    success: function () {
-                        location.reload();
-                        console.log("done");
-
-                    }
-                })
-            }
-        }
-    </script>
 </head>
 <body>
-<!-- The Modal -->
-<div class="modal fade" id="myModal">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">update</h4>
-            </div>
-
-            <!-- Modal body -->
-            <div class="modal-body">
-                <form>
-                    <div class="username">
-                        <span class="username">Username:</span>
-                        <input type="text" name="name" class="name" id="username" placeholder="" required="">
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="username">
-                        <span class="username">Firstname:</span>
-                        <input type="text" name="email" class="name" id="firstname" placeholder="" required="">
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="password-agileits">
-                        <span class="username">Password:</span>
-                        <input type="password" name="password" class="password" id="password" placeholder=""
-                               required="">
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="login-w3">
-                        <input type="button" class="login" value="update" onclick="updateUser()">
-                    </div>
-                    <div class="clearfix"></div>
-                </form>
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="page-container">
     <!--/content-inner-->
     <div class="left-content">
@@ -191,9 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="logo-w3-agile">
                     <h1><a href="indexx.html">Pooled</a></h1>
                 </div>
-                <div class="w3layouts-left">
-
-                    <!--search-box-->
+                <div class="w3layouts-left"><!--search-box-->
                     <div class="w3-search-box">
                         <form action="#" method="post">
                             <input type="text" placeholder="Search..." required="">
@@ -344,17 +195,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </ul>
                         <div class="clearfix"></div>
                     </div>
-                    <!--notification menu end -->
-
-                    <div class="clearfix"></div>
+                    <!--notification menu end --><div class="clearfix"></div>
                 </div>
                 <div class="profile_details w3l">
                     <ul>
                         <li class="dropdown profile_details_drop">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 <div class="profile_img">
+                                    <span class="prfil-img"><img src="images/in4.jpg" alt=""> </span>
                                     <div class="user-name">
-                                        <P id="demo"></p>
+                                        <P>Malorum</>
+                                        <span>Administrator</span>
                                     </div>
                                     <i class="fa fa-angle-down"></i>
                                     <i class="fa fa-angle-up"></i>
@@ -368,9 +219,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </ul>
                         </li>
                     </ul>
-                </div>
-
-                <div class="clearfix"></div>
+                </div><div class="clearfix"></div>
             </div>
             <!--heder end here-->
             <ol class="breadcrumb">
@@ -385,11 +234,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                         <div class="four-text">
                             <h3>User</h3>
-                            <h4> 24,420 </h4>
-
-                        </div>
-
-                    </div>
+                            <h4> 24,420 </h4></div></div>
                 </div>
                 <div class="col-md-3 four-grid">
                     <div class="four-agileinfo">
@@ -398,11 +243,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                         <div class="four-text">
                             <h3>Clients</h3>
-                            <h4>15,520</h4>
-
-                        </div>
-
-                    </div>
+                            <h4>15,520</h4></div></div>
                 </div>
                 <div class="col-md-3 four-grid">
                     <div class="four-w3ls">
@@ -411,11 +252,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                         <div class="four-text">
                             <h3>Projects</h3>
-                            <h4>12,430</h4>
-
-                        </div>
-
-                    </div>
+                            <h4>12,430</h4></div></div>
                 </div>
                 <div class="col-md-3 four-grid">
                     <div class="four-wthree">
@@ -424,11 +261,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                         <div class="four-text">
                             <h3>Old Projects</h3>
-                            <h4>14,430</h4>
-
-                        </div>
-
-                    </div>
+                            <h4>14,430</h4></div></div>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -439,20 +272,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-cog"></i></a>
     </div>
 </div>
-</header>
-
-<!--//agileinfo-grap-->
-<!--photoday-section-->
-
-
-<div class="col-sm-4 wthree-crd">
+</header><!--//agileinfo-grap-->
+<!--photoday-section--><div class="col-sm-4 wthree-crd">
     <div class="card">
         <div class="card-body">
             <div class="widget widget-report-table">
                 <header class="widget-header m-b-15">
-                </header>
-
-                <div class="row m-0 md-bg-grey-100 p-l-20 p-r-20">
+                </header><div class="row m-0 md-bg-grey-100 p-l-20 p-r-20">
                     <div class="col-md-6 col-sm-6 col-xs-6 w3layouts-aug">
                         <h3>August 2016</h3>
                         <p>REPORT</p>
@@ -460,9 +286,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-6 col-sm-6 col-xs-6 ">
                         <h2 class="text-right c-teal f-300 m-t-20">$21,235</h2>
                     </div>
-                </div>
-
-                <div class="widget-body p-15">
+                </div><div class="widget-body p-15">
                     <table class="table table-bordered">
                         <thead>
                         <tr>
@@ -481,9 +305,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>4589</td>
                             <td>Lorem Ipsum</td>
                             <td>6,500.00</td>
-                        </tr>
-
-                        <tr>
+                        </tr><tr>
                             <td>3269</td>
                             <td>specimen book</td>
                             <td>6,800.00</td>
@@ -504,29 +326,69 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
-</div>
-
-<div class="col-sm-4 w3-agileits-crd">
-
-    <div class="card card-contact-list">
+</div><div class="col-sm-4 w3-agileits-crd"><div class="card card-contact-list">
         <div class="agileinfo-cdr">
             <div class="card-header">
                 <h3>Contacts</h3>
-
             </div>
             <div class="card-body p-b-20">
                 <div class="list-group">
-                    <table id="dev" style="width: 100%">
-                        <tr style="width: 100%">
-                            <th>first</th>
-                            <th>last</th>
-                            <th>user</th>
-                            <th>pass</th>
-                            <th>options</th>
-                        </tr>
-                    </table>
-
-                </div>
+                    <a class="list-group-item media" href="">
+                        <div class="pull-left">
+                            <img class="lg-item-img" src="images/in1.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <div class="pull-left">
+                                <div class="lg-item-heading">Lorem</div>
+                                <small class="lg-item-text">lorem@gmail.com</small>
+                            </div>
+                            <div class="pull-right">
+                                <div class="lg-item-heading">Ceo</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="list-group-item media" href="">
+                        <div class="pull-left">
+                            <img class="lg-item-img" src="images/in2.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <div class="pull-left">
+                                <div class="lg-item-heading">Ipsum</div>
+                                <small class="lg-item-text">ipsum@hotmail.com</small>
+                            </div>
+                            <div class="pull-right">
+                                <div class="lg-item-heading">Director</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="list-group-item media" href="">
+                        <div class="pull-left">
+                            <img class="lg-item-img" src="images/in3.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <div class="pull-left">
+                                <div class="lg-item-heading">Unknown</div>
+                                <small class="lg-item-text">unknown@gmail.com</small>
+                            </div>
+                            <div class="pull-right">
+                                <div class="lg-item-heading">Manager</div>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="list-group-item media" href="">
+                        <div class="pull-left">
+                            <img class="lg-item-img" src="images/in4.jpg" alt="">
+                        </div>
+                        <div class="media-body">
+                            <div class="pull-left">
+                                <div class="lg-item-heading">Specimen</div>
+                                <small class="lg-item-text">specimen@hotmail.com</small>
+                            </div>
+                            <div class="pull-right">
+                                <div class="lg-item-heading">Assistan</div>
+                            </div>
+                        </div>
+                    </a></div>
             </div>
         </div>
     </div>
@@ -570,18 +432,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <small class="text-muted">55 mins ago</small>
                                 <p>Jim shared a folder with you</p>
                             </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
+                        </div></div>
+                </div></div>
         </div>
     </div>
 </div>
-<div class="clearfix"></div>
-
-<!--//photoday-section-->
+<div class="clearfix"></div><!--//photoday-section-->
 <!--w3-agileits-pane-->
 <div class="w3-agileits-pane">
     <div class="col-md-4 wthree-pan">
@@ -605,9 +461,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="#" class="list-group-item"> <i class="fa fa-tasks fa-fw"></i> New Task <span
                             class="pull-right text-muted small"><em>43 minutes ago</em> </span> </a>
                 </div>
-                <!-- /.list-group -->
-
-            </div>
+                <!-- /.list-group --></div>
             <!-- /.panel-body -->
         </div>
     </div>
@@ -677,15 +531,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             } else {
                 $(".header-main").removeClass("fixed");
             }
-        });
-
-    });
+        });});
 </script>
 <!-- /script-for sticky-nav -->
 <!--inner block start here-->
-<div class="inner-block">
-
-</div>
+<div class="inner-block"></div>
 <!--inner block end here-->
 <!--copy rights start here-->
 <div class="copyrights">
@@ -705,10 +555,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <ul id="menu">
             <li><a href="indexx.html"><i class="fa fa-tachometer"></i> <span>Dashboard</span>
                 <div class="clearfix"></div>
-            </a></li>
-
-
-            <li id="menu-academico"><a href="inbox.html"><i class="fa fa-envelope nav_icon"></i><span>Inbox</span>
+            </a></li><li id="menu-academico"><a href="inbox.html"><i class="fa fa-envelope nav_icon"></i><span>Inbox</span>
                 <div class="clearfix"></div>
             </a></li>
             <li><a href="gallery.html"><i class="fa fa-picture-o" aria-hidden="true"></i><span>Gallery</span>
@@ -754,10 +601,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul id="menu-academico-sub">
                     <li id="menu-academico-boletim"><a href="calendar.html">Calendar</a></li>
                     <li id="menu-academico-avaliacoes"><a href="signin.html">Sign In</a></li>
-                    <li id="menu-academico-avaliacoes"><a href="signup.html">Sign Up</a></li>
-
-
-                </ul>
+                    <li id="menu-academico-avaliacoes"><a href="signup.html">Sign Up</a></li></ul>
             </li>
             <li><a href="#"><i class="fa fa-check-square-o nav_icon"></i><span>Forms</span> <span
                     class="fa fa-angle-right" style="float: right"></span>
@@ -774,24 +618,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="clearfix"></div>
 </div>
 <script>
-    var toggle = true;
-
-    $(".sidebar-icon").click(function () {
+    var toggle = true;$(".sidebar-icon").click(function () {
         if (toggle) {
             $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
             $("#menu span").css({"position": "absolute"});
-        } else {
+        }
+        else {
             $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
             setTimeout(function () {
                 $("#menu span").css({"position": "relative"});
             }, 400);
-        }
-
-        toggle = !toggle;
+        }toggle = !toggle;
     });
 </script>
 <!--js -->
-<!--<script src="js/jquery.nicescroll.js"></script>-->
+<script src="js/jquery.nicescroll.js"></script>
 <script src="js/scripts.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
@@ -810,16 +651,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         jQuery('.small-graph-box .box-close').click(function () {
             jQuery(this).closest('.small-graph-box').fadeOut(200);
             return false;
-        });
-
-        //CHARTS
+        });//CHARTS
         function gd(year, day, month) {
             return new Date(year, month - 1, day).getTime();
-        }
-    });
-
-
+        }graphArea2 = Morris.Area({
+            element: 'hero-area',
+            padding: 10,
+            behaveLikeLine: true,
+            gridEnabled: false,
+            gridLineColor: '#dddddd',
+            axes: true,
+            resize: true,
+            smooth: true,
+            pointSize: 0,
+            lineWidth: 0,
+            fillOpacity: 0.85,
+            data: [
+                {period: '2014 Q1', iphone: 2668, ipad: null, itouch: 2649},
+                {period: '2014 Q2', iphone: 15780, ipad: 13799, itouch: 12051},
+                {period: '2014 Q3', iphone: 12920, ipad: 10975, itouch: 9910},
+                {period: '2014 Q4', iphone: 8770, ipad: 6600, itouch: 6695},
+                {period: '2015 Q1', iphone: 10820, ipad: 10924, itouch: 12300},
+                {period: '2015 Q2', iphone: 9680, ipad: 9010, itouch: 7891},
+                {period: '2015 Q3', iphone: 4830, ipad: 3805, itouch: 1598},
+                {period: '2015 Q4', iphone: 15083, ipad: 8977, itouch: 5185},
+                {period: '2016 Q1', iphone: 10697, ipad: 4470, itouch: 2038},
+                {period: '2016 Q2', iphone: 8442, ipad: 5723, itouch: 1801}
+            ],
+            lineColors: ['#ff4a43', '#a2d200', '#22beef'],
+            xkey: 'period',
+            redraw: true,
+            ykeys: ['iphone', 'ipad', 'itouch'],
+            labels: ['All Visitors', 'Returning Visitors', 'Unique Visitors'],
+            pointSize: 2,
+            hideHover: 'auto',
+            resize: true
+        });});
 </script>
-
 </body>
 </html>
